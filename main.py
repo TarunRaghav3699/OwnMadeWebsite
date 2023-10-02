@@ -22,6 +22,18 @@ def submit():
     """for submit page"""
     name = request.form.get('Email')
     passw = request.form.get('Password')
+    
+    data = {
+        "Email": name,
+        "password": passw,
+    }
+
+    
+    result = records.insert_one(data)
+
+    
+    print("Inserted document ID:", result.inserted_id)
+
     if name == passw:
         return f"your Email is {name}, and your password is {passw}"
     else:
