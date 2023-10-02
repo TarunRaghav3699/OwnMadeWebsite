@@ -5,10 +5,10 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 
-uri = "mongodb+srv://mongotarun:2TGYh1qmeaYcnKjR@cluster0.w31imin.mongodb.net/?retryWrites=true&w=majority"
+uri = "mongodb+srv://Doc:<password>@main.ob9pc3z.mongodb.net/"
 client = MongoClient(uri)
-db = client.get_database("main")
-records = db["MyRecords"]
+db = client.get_database("Main")
+records = db["main"]
 
 
 @app.route('/', methods=["GET"])
@@ -22,18 +22,12 @@ def submit():
     """for submit page"""
     name = request.form.get('Email')
     passw = request.form.get('Password')
-    
     data = {
         "Email": name,
         "password": passw,
     }
-
-    
     result = records.insert_one(data)
-
-    
     print("Inserted document ID:", result.inserted_id)
-
     if name == passw:
         return f"your Email is {name}, and your password is {passw}"
     else:
