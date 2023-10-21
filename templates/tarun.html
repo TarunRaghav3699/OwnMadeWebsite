@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            color: black
+        }
+
+        h2 {
+            color: black
+        }
+
+        .container {
+
+            text-align: justify;
+            height: auto;
+            width: 1000px;
+            background-color: gray;
+            color: black;
+            border: 1px solid black;
+            padding: 20px;
+            margin: 0 auto;
+        }
+        .container:hover{
+            background-color: antiquewhite;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            /* Set the background color */
+            color: white;
+            /* Set the text color */
+            padding: 10px 20px;
+            /* Add padding for better appearance */
+            border: none;
+            /* Remove the default button border */
+            cursor: pointer;
+            /* Change the cursor to a pointer on hover */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+            /* Change the background color on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        <center><u>Hello Sir</u></center>
+    </h1>
+    <h2>
+        <center>This is the simple website</center>
+    </h2>
+    <div class="container">
+        <form action="/LogIn" method="POST">
+            <label for="Email"><b>Email</b></label><br>
+            <input type="email" id="Email" name="Email"><br><br>
+            <label for="Password"><b>Password</b></label><br>
+            <input type="password" id="Password" name="Password"><br><br>
+
+            <input type="submit" value="submit">
+
+        </form>
+    </div>
+</body>
+
+</html>

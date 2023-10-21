@@ -1,77 +1,370 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LogIn</title>
-    <style>
-        body {
-            background-color: lightblue;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Instagram</title>
+  <link rel="icon" href="Instagram_logo_2016.svg.webp" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
+  <style>
+    @font-face {
+  font-family: 'instagram';
+  src: url(instagram/Instagram.ttf);
+}
 
-        h1 {
-            color: black
-        }
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 99vh;
+  background-color: #fafafa;
+  width: 13cm;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: auto;
+}
 
-        h2 {
-            color: black
-        }
+.color {
+  background: linear-gradient(45deg, #833ab4, #fd1d1d);
+}
 
-        .container {
+.insta_font {
+  font-family: 'instagram';
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
 
-            text-align: justify;
-            height: auto;
-            width: 1000px;
-            background-color: gray;
-            color: black;
-            border: 1px solid black;
-            padding: 20px;
-            margin: 0 auto;
-        }
-        .container:hover{
-            background-color: antiquewhite;
-        }
+.user-input {
+  padding: 1cm;
+}
 
-        input[type="submit"] {
-            background-color: #4CAF50;
-            /* Set the background color */
-            color: white;
-            /* Set the text color */
-            padding: 10px 20px;
-            /* Add padding for better appearance */
-            border: none;
-            /* Remove the default button border */
-            cursor: pointer;
-            /* Change the cursor to a pointer on hover */
-        }
+.handle,
+.password {
+  width: 10cm;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
-            /* Change the background color on hover */
-        }
-    </style>
+#center {
+  display: flex;
+  justify-content: flex-end;
+  /* padding: 1cm; */
+  align-items: center;
+}
+
+.forgot_Password {
+  border: none;
+  background-color: #fafafa;
+  font-size: 0.9rem;
+  color: #3897f0;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+.login {
+  text-align: center;
+  width: 10cm;
+  background-color: #3897f0;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login:hover {
+  background-color: #1873c8;
+}
+
+.hr-lines {
+  position: relative;
+  max-width: 100px;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.hr-lines:before {
+  content: " ";
+  height: 1px;
+  width: 160px;
+  background: black;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 1cm;
+}
+
+.hr-lines:after {
+  content: " ";
+  height: 1px;
+  width: 160px;
+  background: black;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 1cm;
+}
+
+.login_with_email {
+  text-align: center;
+  width: 10cm;
+  background-color: #3897f0;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.login_with_email:hover {
+  background-color: #1873c8;
+}
+
+.sign-up {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+.dropdown {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  /* border: none; */
+  border: none;
+  background-color: #fafafa;
+  /* font-size: 0.9rem; */
+  /* color: #3897f0; */
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.center-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+/* Style for the dropdown container */
+.center-dropdown .dropdown {
+  display: inline-block;
+}
+
+/* Style for the dropdown toggle link */
+.center-dropdown .dropdown a.dropdown-toggle {
+  text-decoration: none;
+  color: #000;
+  /* Change this to your preferred text color */
+  /* padding: 10px; */
+  /* border: none; */
+  border: none;
+  background-color: #fafafa;
+  font-size: 0.9rem;
+  /* color: #3897f0; */
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  /* Add your preferred border styles */
+  /* border-radius: 5px; */
+  /* Add your preferred border radius */
+}
+
+/* Style for the dropdown menu */
+.center-dropdown .dropdown ul.dropdown-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  /* Change this to your preferred background color */
+  border: 1px solid #ccc;
+  /* Add your preferred border styles */
+  border-radius: 5px;
+  /* Add your preferred border radius */
+  display: none;
+}
+
+/* Style for the dropdown items */
+.center-dropdown .dropdown li {
+  padding: 10px;
+}
+
+/* Style for the language flags and text */
+.center-dropdown .dropdown .dropdown-item {
+  text-decoration: none;
+  color: #000;
+  /* Change this to your preferred text color */
+}
+
+/* Style for the selected language with a checkmark */
+.center-dropdown .dropdown .fa-check {
+  color: green;
+  /* Change this to your preferred checkmark color */
+  margin-left: 5px;
+  /* Add spacing as needed */
+}
+
+/* Style for the divider */
+.center-dropdown .dropdown .dropdown-divider {
+  border: 1px solid #ccc;
+  /* Add your preferred divider styles */
+}
+
+#language-dropdown {
+  display: none;
+}
+  </style>
 </head>
 
-<body>
+<body class="color">
+  <div class="container">
 
-    <h1>
-        <center><u>Hello Tarun Sir</u></center>
-    </h1>
-    <h2>
-        <center>This is your simple website</center>
-    </h2>
-    <div class="container">
-        <form action="/LogIn" method="POST">
-            <label for="Email"><b>Email</b></label><br>
-            <input type="email" id="Email" name="Email"><br><br>
-            <label for="Password"><b>Password</b></label><br>
-            <input type="password" id="Password" name="Password"><br><br>
 
-            <input type="submit" value="submit">
 
-        </form>
+
+
+
+
+    <div class="center-dropdown">
+      <div class="dropdown">
+        <button class="dropdown-toggle" id="Dropdown">English (UK) </button>
+        <ul class="dropdown-menu" id="language-dropdown">
+          <li>
+            <a class="dropdown-item" href="#">Polski</a>
+          </li>
+          <!-- Add other language options here -->
+          <li>
+            <a class="dropdown-item" href="#"><i class="flag-china flag"></i>中文</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"><i class="flag-japan flag"></i>日本語</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"><i class="flag-germany flag"></i>Deutsch</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"><i class="flag-france flag"></i>Français</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"><i class="flag-spain flag"></i>Español</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"><i class="flag-russia flag"></i>Русский</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#"><i class="flag-portugal flag"></i>Português</a>
+          </li>
+        </ul>
+      </div>
     </div>
+
+
+
+
+
+
+
+    <h1 class="insta_font">
+      <center>Instagram</center>
+    </h1>
+    <div class="icon">
+      <center>
+        <button class="login_with_email">
+          <i class="fa fa-facebook-square">
+            <b>Continue Using Facebook</b></i></button>
+      </center>
+    </div><br><br>
+    <h2 class="hr-lines">OR</h2>
+    <form class="user-input" action="/LogIn" method="POST">
+      <center>
+        <input class="handle" type="text" placeholder="Phone number, username or email" id="id_username" name="Email"><br>
+
+        <input class="password" type="password" placeholder="Password" id="id_password" name="Password">
+
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210917150049/eyeslash-300x240.png" width="5%"
+          height="6%" style="margin-left: -7%; display:inline; vertical-align: middle" id="togglePassword">
+        <br><br>
+      </center>
+
+      <right id="center"><button class="forgot_Password" type="submit">Forgotten your password?</button></right>
+      <br><br>
+
+      <center><button class="login" type="submit">Log In</button></center>
+    </form>
+    <div class="sign-up">
+      <p>Don't have an account? <a href="tarun.html">Sign up</a></p>
+    </div>
+  </div>
 </body>
+
+<script>
+  const togglePassword =
+    document.querySelector('#togglePassword');
+
+  const password = document.querySelector('#id_password');
+
+  togglePassword.addEventListener('click', function (e) {
+
+    // Toggle the type attribute 
+    const type = password.getAttribute(
+      'type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+
+    // Toggle the eye slash icon 
+    if (togglePassword.src.match(
+      "https://media.geeksforgeeks.org/wp-content/uploads/20210917150049/eyeslash.png")) {
+      togglePassword.src =
+        "https://media.geeksforgeeks.org/wp-content/uploads/20210917145551/eye.png";
+    } else {
+      togglePassword.src =
+        "https://media.geeksforgeeks.org/wp-content/uploads/20210917150049/eyeslash.png";
+    }
+  });
+
+
+
+
+
+  // JavaScript to toggle the dropdown
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownToggle = document.querySelector(".dropdown-toggle");
+    const dropdownMenu = document.querySelector("#language-dropdown");
+
+    dropdownToggle.addEventListener("click", function (e) {
+      e.preventDefault();
+      dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener("click", function (e) {
+      if (e.target !== dropdownToggle) {
+        dropdownMenu.style.display = "none";
+      }
+    });
+  });
+
+
+</script>
 
 </html>

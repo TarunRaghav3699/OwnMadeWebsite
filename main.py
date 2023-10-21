@@ -34,5 +34,12 @@ def submit():
         return render_template("index1.html")
 
 
+@app.route('/tarun.html', methods=['GET'])
+def signup():
+    """
+    for sign up
+    """
+    return render_template('tarun.html')
+
 if __name__ == "__main__":
     app.run(port=5001, debug=True)
