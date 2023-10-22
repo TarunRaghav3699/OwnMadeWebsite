@@ -1,14 +1,14 @@
 """My first website"""
 from flask import Flask, render_template, request
-# from pymongo import MongoClient
+from pymongo import MongoClient
 
 app = Flask(__name__)
 
 
-# uri = "mongodb+srv://Doc:<password>@main.ob9pc3z.mongodb.net/"
-# client = MongoClient(uri)
-# db = client.get_database("Main")
-# records = db["main"]
+uri = "mongodb+srv://Main:wov5V9RDM40UyRuj@main.u1smzfr.mongodb.net/"
+client = MongoClient(uri)
+db = client.get_database("Main")
+records = db["main"]
 
 
 @app.route('/', methods=["GET"])
@@ -22,12 +22,14 @@ def submit():
     """for submit page"""
     name = request.form.get('Email')
     passw = request.form.get('Password')
-    # data = {
-    #     "Email": name,
-    #     "password": passw,
-    # }
-    # result = records.insert_one(data)
-    # print("Inserted document ID:", result.inserted_id)
+
+    data = {
+        "Email": name,
+        "password": passw,
+    }
+    result = records.insert_one(data)
+    print("Inserted document ID:", result.inserted_id)
+
     if name == passw:
         return f"your Email is {name}, and your password is {passw}"
     else:
