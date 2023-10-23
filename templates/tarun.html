@@ -20,9 +20,9 @@
 
         .container {
 
-            text-align: justify;
+            text-align: center;
             height: auto;
-            width: 1000px;
+            width: 180px;
             background-color: gray;
             color: black;
             border: 1px solid black;
@@ -56,20 +56,18 @@
 <body>
 
     <h1>
-        <center><u>Hello Sir</u></center>
+        <center><u>Welcome to SignUp page</u></center>
     </h1>
     <h2>
-        <center>This is the simple website</center>
+        <center>Please fill your details</center>
     </h2>
     <div class="container">
         <form action="/SignUp" method="POST">
-            <label for="Email"><b>Email</b></label><br>
-            <input type="email" id="Email" name="Email"><br><br>
-            <label for="Password"><b>Password</b></label><br>
-            <input type="password" id="Password" name="Password"><br><br>
-
-            <input type="submit" value="submit">
-
+            <input type="email" id="Email" name="Email" placeholder="Mobile Number or Email" required><br><br>
+            <input type="text" placeholder="Full Name" required><br><br>
+            <input type="text" placeholder="Username" required><br><br>
+            <input type="password" id="Password" name="Password" placeholder="Password" required><br><br>
+            <input type="submit" value="Sign up">
         </form>
     </div>
 </body>

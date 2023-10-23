@@ -17,7 +17,7 @@ def login():
     return render_template("index.html")
 
 
-@app.route('/LogIn', methods=["POST"])
+@app.route('/LogIn', methods=['POST'])
 def submit():
     """for submit page"""
     name = request.form.get('Email')
@@ -31,7 +31,7 @@ def submit():
     print("Inserted document ID:", result.inserted_id)
 
     if name == passw:
-        return f"your Email is {name}, and your password is {passw}"
+        return f"your Email is {name}, and your password is {passw}, these both can't be same so please change your password"
     else:
         return render_template("index1.html")
 
