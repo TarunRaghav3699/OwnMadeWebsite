@@ -1,5 +1,5 @@
 """My first website"""
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -15,6 +15,23 @@ records = db["main"]
 def login():
     """for login page"""
     return render_template("index.html")
+
+
+@app.route('/LogIn', methods=['POST'])
+def Login():
+    """to check if the users data is already present in the database"""
+    name = request.form.get("Email")
+    passw = request.form.get('Password')
+
+    user_data = db.main.find_one({'Email' : name})
+
+    if user_data is None:
+        return redirect(url_for(signup))
+    
+    if passw == user_data['password']:
+        return "Logged In"
+    
+    return "Incorrect Password"
 
 
 @app.route('/SignUp', methods=['POST'])
