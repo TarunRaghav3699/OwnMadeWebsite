@@ -40,7 +40,7 @@ def submit():
         return render_template("index1.html")
 
 
-@app.route('/index2.html', methods=['GET'])
+@app.route('/signup', methods=['GET'])
 def signup():
     """
     for sign up
