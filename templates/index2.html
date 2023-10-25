@@ -50,21 +50,21 @@
   font-size: 1rem;
 }
 
-#center {
+/* #center {
   display: flex;
   justify-content: flex-end;
   /* padding: 1cm; */
-  align-items: center;
-}
+ /* align-items: center;
+} */
 
-.forgot_Password {
+/* .forgot_Password {
   border: none;
   background-color: #fafafa;
   font-size: 0.9rem;
   color: #3897f0;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
-}
+} */
 
 .login {
   text-align: center;
@@ -301,17 +301,21 @@
       <center>
         <button class="login_with_email">
           <i class="fa fa-facebook-square">
-            <b>Continue Using Facebook</b></i></button>
+            <b>Log in with Facebook</b></i></button>
       </center>
     </div><br><br>
     <h2 class="hr-lines">OR</h2>
 
     <!-- form starts from here 🔽 -->
 
-    <form class="user-input" action="/LogIn" method="POST">
+    <form class="user-input" action="/SignUp" method="POST">
       <center>
-        <input class="handle" type="text" placeholder="Phone number, username or email" id="id_username" name="Email"><br>
+          <input class="handle" type="text" placeholder="Phone Number or Email" id="id_username" name="Email"><br>
 
+          <input class="handle" type="text" placeholder="Full Name" id="id_fullname" name="Name"><br>
+
+          <input class="handle" type="text" placeholder="Username" id="id_userid" name="Username"><br>
+          
         <input class="password" type="password" placeholder="Password" id="id_password" name="Password">
 
         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210917150049/eyeslash-300x240.png" width="5%"
@@ -319,15 +323,16 @@
         <br><br>
       </center>
 
-      <right id="center"><button class="forgot_Password" type="submit">Forgotten your password?</button></right>
-      <br><br>
+      <!-- <right id="center"><button class="forgot_Password" type="submit">Forgotten your password?</button></right>
+      <br><br> -->
 
-      <center><button class="login" type="submit" value="submit" >Log In</button></center>
+      <center><button class="login" type="submit" value="submit" >Sign up</button></center>
+      <center><p>By signing up, you agree to our Terms, Data Policy and Cookies Policy</p></center>
     </form>
     <!-- form ended 🔼-->
 
     <div class="sign-up">
-      <p>Don't have an account? <a href="index2.html" class="sign-log">Sign up</a></p>
+      <p>Have an account? <a href="index.html" class="sign-log">Log in</a></p>
     </div>
   </div>
 </body>
