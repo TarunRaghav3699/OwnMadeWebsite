@@ -21,7 +21,7 @@ def login():
     return render_template("index.html")
 
 @app.route('/LogIn', methods=['POST'])
-def Login():
+def login_db():
     """to check if the users data is already present in the database"""
     name = request.form.get("Email")
     passw = request.form.get('Password')
@@ -29,11 +29,9 @@ def Login():
     user_data = db.main.find_one({'Email' : name})
 
     if user_data is None:
-        return redirect(url_for(signup))
-    
+        return redirect(url_for('signup'))
     if passw == user_data['password']:
         return render_template("dashboard.html")
-    
     return "Incorrect Password"
 
 
@@ -55,12 +53,13 @@ def submit():
     print("Inserted document ID:", result.inserted_id)
 
     if name == passw:
-        return f"your Email is {name}, and your password is {passw}, these both can't be same so please change your password"
+        return f"""your Email is {name}, and your password is {passw},
+        these both can't be same so please change your password"""
     else:
         return render_template("index1.html")
 
 
-@app.route('/signup', methods=['GET'])
+@app.route('/Signup', methods=['GET'])
 def signup():
     """
     for sign up
