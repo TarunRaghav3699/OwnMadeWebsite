@@ -9,7 +9,6 @@ load_dotenv()
 app = Flask(__name__)
 
 
-# uri = f"mongodb+srv://Main:{os.getenv('MONGODB_PASSWORD')}@main.u1smzfr.mongodb.net/"
 uri = f"mongodb+srv://Test:{os.getenv('MONGODB_PASSWORD')}@main.l0zlzdr.mongodb.net/"
 client = MongoClient(uri)
 db = client.get_database("Main")
