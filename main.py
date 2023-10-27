@@ -26,7 +26,7 @@ def login_db():
     name = request.form.get("Email")
     passw = request.form.get('Password')
 
-    user_data = db.main.find_one({'Email' : name})
+    user_data = db.test.find_one({'Email' : name})
 
     if user_data is None:
         return redirect(url_for('signup'))
@@ -56,7 +56,7 @@ def submit():
         return f"""your Email is {name}, and your password is {passw},
         these both can't be same so please change your password"""
     else:
-        return render_template("index1.html")
+        return render_template("dashboard.html")
 
 
 @app.route('/Signup', methods=['GET'])
