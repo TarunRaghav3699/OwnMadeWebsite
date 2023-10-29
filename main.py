@@ -18,17 +18,17 @@ records = db["test"]
 
 @app.route('/', methods=['GET'])
 def dashboard():
-    """adding a modal"""
+    """redirect me to login page"""
     return render_template("index.html")
 
 @app.route('/dashboard', methods=["GET"])
 def login():
-    """for login page"""
+    """redirect me to dashboard"""
     return render_template("dashboard.html")
 
 @app.route('/LogIn', methods=['POST'])
 def login_db():
-    """to check if the users data is already present in the database"""
+    """if the user data is in database then show me the advertisement"""
     name = request.form.get("Email")
     passw = request.form.get('Password')
 
@@ -43,7 +43,7 @@ def login_db():
 
 @app.route('/SignUp', methods=['POST'])
 def submit():
-    """for submit page"""
+    """to add the user data to database and redirect to the advertisement"""
     idemail = request.form.get('Email')
     name = request.form.get('Name')
     username = request.form.get('Username')
@@ -62,13 +62,13 @@ def submit():
         return f"""your Email is {name}, and your password is {passw},
         these both can't be same so please change your password"""
     else:
-        return render_template("dashboard.html")
+        return render_template("tarun.html")
 
 
 @app.route('/Signup', methods=['GET'])
 def signup():
     """
-    for sign up
+    redirect me to the signup page
     """
     return render_template('index2.html')
 
