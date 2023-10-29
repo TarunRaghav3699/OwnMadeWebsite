@@ -19,12 +19,12 @@ records = db["test"]
 @app.route('/', methods=['GET'])
 def dashboard():
     """adding a modal"""
-    return render_template("tarun.html")
+    return render_template("index.html")
 
-@app.route('/login', methods=["GET"])
+@app.route('/dashboard', methods=["GET"])
 def login():
     """for login page"""
-    return render_template("index.html")
+    return render_template("dashboard.html")
 
 @app.route('/LogIn', methods=['POST'])
 def login_db():
@@ -37,7 +37,7 @@ def login_db():
     if user_data is None:
         return redirect(url_for('signup'))
     if passw == user_data['password']:
-        return render_template("dashboard.html")
+        return render_template("tarun.html")
     return "Incorrect Password"
 
 
