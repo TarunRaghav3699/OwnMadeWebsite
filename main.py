@@ -15,7 +15,13 @@ db = client.get_database("Main")
 records = db["test"]
 
 
-@app.route('/', methods=["GET"])
+
+@app.route('/', methods=['GET'])
+def dashboard():
+    """adding a modal"""
+    return render_template("tarun.html")
+
+@app.route('/login', methods=["GET"])
 def login():
     """for login page"""
     return render_template("index.html")
@@ -65,6 +71,10 @@ def signup():
     for sign up
     """
     return render_template('index2.html')
+
+
+
+
 
 if __name__ == "__main__":
     app.run(port=5001, debug=True)

@@ -1,75 +1,77 @@
+<!-- modal_ad.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LogIn</title>
+    <title>add</title>
+    <link rel="icon" href="static/Instagram_logo_2016.svg.webp" type="image/x-icon">
     <style>
-        body {
-            background-color: lightblue;
+        /* CSS for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            overflow: auto;
         }
 
-        h1 {
-            color: black
-        }
-
-        h2 {
-            color: black
-        }
-
-        .container {
-
-            text-align: center;
-            height: auto;
-            width: 180px;
-            background-color: gray;
-            color: black;
-            border: 1px solid black;
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
             padding: 20px;
-            margin: 0 auto;
-        }
-        .container:hover{
-            background-color: antiquewhite;
+            border: 1px solid #888;
+            width: 80%;
         }
 
-        input[type="submit"] {
-            background-color: #4CAF50;
-            /* Set the background color */
-            color: white;
-            /* Set the text color */
-            padding: 10px 20px;
-            /* Add padding for better appearance */
-            border: none;
-            /* Remove the default button border */
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
             cursor: pointer;
-            /* Change the cursor to a pointer on hover */
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-            /* Change the background color on hover */
         }
     </style>
 </head>
 
 <body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
 
-    <h1>
-        <center><u>Welcome to SignUp page</u></center>
-    </h1>
-    <h2>
-        <center>Please fill your details</center>
-    </h2>
-    <div class="container">
-        <form action="/SignUp" method="POST">
-            <input type="email" id="Email" name="Email" placeholder="Mobile Number or Email" required><br><br>
-            <input type="text" placeholder="Full Name" required><br><br>
-            <input type="text" placeholder="Username" required><br><br>
-            <input type="password" id="Password" name="Password" placeholder="Password" required><br><br>
-            <input type="submit" value="Sign up">
-        </form>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>If you want to get your own website like this then contact me through my <a
+                    href="https://www.instagram.com/tarunraghav3699/">Instagram</a> account</p>
+        </div>
+
     </div>
+
+    <script>
+        // JavaScript to display the modal when the page loads
+        window.onload = function () {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'block';
+        }
+
+        // Function to close the modal and redirect to the "/login" route
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+            window.location.href = "/login";  // Redirect to the "/login" route
+        }
+    </script>
 </body>
 
 </html>
