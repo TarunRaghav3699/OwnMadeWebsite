@@ -50,6 +50,10 @@ def login_db():
 
 @app.route('/test')
 def test():
+    """_summary_
+    Returns:
+        _type_: _description_
+    """
     return render_template("tarun.html")
 
 @app.route('/SignUp', methods=['POST'])
