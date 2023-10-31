@@ -24,7 +24,7 @@ def dashboard():
 @app.route('/dashboard', methods=["GET"])
 def login():
     """redirect me to dashboard"""
-    return render_template("dashboard.html")
+    return render_template("Dashboard.html")
 
 @app.route('/LogIn', methods=['POST'])
 def login_db():

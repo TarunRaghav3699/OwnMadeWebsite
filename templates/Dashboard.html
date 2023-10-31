@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Instagram Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0
+        }
+
+        .icon-bar {
+            width: 90px;
+            background-image: linear-gradient(to down, #833ab4, #fd1d1d );
+        }
+
+        .icon-bar a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 36px;
+        }
+
+        .icon-bar a:hover {
+            background-color: #000;
+        }
+
+        
+    </style>
 </head>
+
 <body>
     <header>
         <!-- Navigation bar, logo, and user profile image go here -->
@@ -12,10 +38,18 @@
 
     <main>
         <!-- Post feed, user suggestions, and other content go here -->
+            <div class="icon-bar">
+              <a href="#"><i class="fa fa-home"></i></a> 
+              <a href="#"><i class="fa fa-search"></i></a> 
+              <a href="#"><i class="fa fa-envelope"></i></a> 
+              <a href="#"><i class="fa fa-globe"></i></a>
+              <a href="#"><i class="fa fa-trash"></i></a> 
+            </div>
     </main>
 
     <footer>
         <!-- Footer content like links and additional information go here -->
     </footer>
 </body>
+
 </html>
