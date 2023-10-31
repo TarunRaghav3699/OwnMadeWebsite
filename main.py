@@ -8,7 +8,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = "GDtfD^&$%@^8tgYjD"
+app.config['SECRET_KEY'] = f"{os.getenv('Secret_Key')}"
 
 
 uri = f"mongodb+srv://Test:{os.getenv('MONGODB_PASSWORD')}@main.l0zlzdr.mongodb.net/"
