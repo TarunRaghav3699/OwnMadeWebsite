@@ -1,2 +1,2 @@
 # Website
-(templates)[template]
+[template](templates)
