@@ -50,7 +50,7 @@ def login_db():
 
 @app.route('/test')
 def test():
-    return f"welcome {session.get['name']}"
+    return render_template("tarun.html")
 
 @app.route('/SignUp', methods=['POST'])
 def submit():
