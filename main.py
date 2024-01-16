@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = f"{os.getenv('Secret_Key')}"
 
 
-uri = uri = f"mongodb+srv://{os.getenv('MONGODB_USERNAME')}:{os.getenv('MONGODB_PASSWORD')}@blog.rb7xc7q.mongodb.net/"
+uri = f"mongodb+srv://{os.getenv('MONGODB_USERNAME')}:{os.getenv('MONGODB_PASSWORD')}@blog.rb7xc7q.mongodb.net/"
 client = MongoClient(uri)
 db = client.get_database("instalogs")
 records = db["login"]
