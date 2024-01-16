@@ -33,7 +33,7 @@ def login():
     """redirect me to dashboard"""
     return render_template("Dashboard.html")
 
-@app.route('/LogIn', methods=['POST'])
+@app.route('/LogIn', methods=['GET','POST'])
 def login_db():
     """if the user data is in database then show me the advertisement"""
     name = request.form.get("Email")
@@ -56,7 +56,7 @@ def test():
     """
     return render_template("tarun.html")
 
-@app.route('/SignUp', methods=['POST'])
+@app.route('/SignUp', methods=['GET','POST'])
 def submit():
     """to add the user data to database and redirect to the advertisement"""
     idemail = request.form.get('Email')
