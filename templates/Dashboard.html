@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="../static/1.png" sizes="64x64" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-image: url('https://w0.peakpx.com/wallpaper/190/187/HD-wallpaper-whatsapp-cartoon-skull-dark-dead-punk.jpg');
+            background-size: contain;
+        }
+
+        #whatsapp-container {
+            flex: 1;
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            width: 20vw;
+            color: #fff;
+            padding-bottom: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: visible;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+
+        #sidebar-icons {
+            background-color: rgba(0, 0, 0, 0.737);
+            color: #fff;
+            padding: 11vh 0.3vw 0 0.3vw;
+            box-shadow: -3px -6px 9px whitesmoke;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #sidebar-icons i:hover {
+            background-color: rgba(0, 0, 0, 0.737);
+            color: #4dd1e6;
+        }
+
+        #sidebar-icons i {
+            font-size: 24px;
+            margin-bottom: 5vh;
+            cursor: pointer;
+        }
+
+        .chat-list-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #fff;
+        }
+
+        .chat-list-item {
+            display: flex;
+            align-items: center;
+            padding: 5px 10px 5px 10px;
+            cursor: pointer;
+            margin: 7px 66px 3px 5px;
+            height: 45px;
+            border: 1px solid #adff2f;
+            border-radius: 30px;
+            transition-duration: 0.3s;
+            box-shadow: 0px 0px 0 0 #888 inset, 0px 0px 0 0 #888 inset;
+        }
+
+        .chat-list-item:hover {
+            color: black;
+            box-shadow: 150px 0px 0 #adff2f inset, -150px 0px 0 #adff2f inset;
+        }
+
+        .chat-list-item div h3 {
+            margin: 5px 0px 5px 0px;
+        }
+
+        .chat-list-item div p {
+            margin: 0;
+            font-weight: bold;
+            font-size: small;
+        }
+
+        .logo {
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            padding: 5px 10px 5px 10px;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .chat-header {
+            border-bottom: 2px solid #adff2f;
+            color: #fff;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .chat-messages {
+            position: sticky;
+            width: 60vw;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-bottom: 10px;
+        }
+
+        .chat-input {
+            position: sticky;
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        button {
+            width: 7vw;
+            color: #fff;
+            border-radius: 15px;
+            background-color: #4dd1e6;
+            padding: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 70%;
+        }
+
+        .sent {
+            background-color: #4dd1e6;
+            color: #fff;
+            align-self: flex-end;
+        }
+
+        .chat-name img {
+            background-color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .chat-name {
+            width: 69%;
+            display: flex;
+            align-items: center;
+            padding: 5px 10px 5px 10px;
+            cursor: pointer;
+            margin: 9px 5px 3px 5px;
+            height: 45px;
+            border: 5px solid #adff2f;
+            border-radius: 30px;
+            position: absolute;
+            top: 0;
+            padding: 10px;
+            z-index: 100;
+        }
+
+        .chat-name div h3 {
+            margin: 5px 0px 5px 0px;
+            color: #fff;
+        }
+
+        .chat-name div p {
+            margin: 0;
+            font-weight: bold;
+            color: black;
+            font-size: small;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.737);
+            overflow-x: hidden;
+            /* padding-top: 60px; Remove this line */
+            transition: 0.5s;
+        }
+        
+        .sidenav a {
+            padding: 15px 15px 15px 32px; /* Adjust the padding */
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-size: 36px;
+            /* margin-left: 50px; Remove or adjust this line */
+            margin-left: 15px; /* Example adjustment */
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 20px;
+        }
+
+        @media only screen and (max-width: 568px) {
+            #whatsapp-container {
+                flex-direction: column;
+            }
+
+            #main-content {
+                align-items: center;
+            }
+
+            #sidebar {
+                width: 100%;
+            }
+
+            #sidebar-icons {
+                justify-content: space-around;
+                /*background-color: rgba(0, 0, 0, 0.737);*/
+                color: #fff;
+                padding: 11vh 80.3vw 0 0.3vw;
+                box-shadow: -3px -6px 9px whitesmoke;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .chat-name {
+                margin: 30px;
+                width: 70%;
+                display: flex;
+                align-items: center;
+                padding: 6px 10px 4px 10px;
+                cursor: pointer;
+                height: 45px;
+                border: 5px solid #adff2f;
+                border-radius: 30px;
+                position: absolute;
+                top: 0;
+                /* padding: 10px; */
+                z-index: 100;
+            }
+
+            .chat-messages {
+                width: 100%;
+            }
+
+            input[type="text"] {
+                width: 70%;
+            }
+
+            button {
+                width: 30%;
+            }
+
+            .message {
+                max-width: 100%;
+            }
+
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+
+            .chat-list-item {
+                display: flex;
+                align-items: center;
+                padding: 5px 10px 5px 10px;
+                cursor: pointer;
+                margin: 7px 24px 3px 5px;
+                height: 45px;
+                border: 1px solid #adff2f;
+                border-radius: 30px;
+                transition-duration: 0.3s;
+                box-shadow: 0px 0px 0 0 #888 inset, 0px 0px 0 0 #888 inset;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+
+</head>
+
+<body>
+
+    <div id="main">
+        <div id="whatsapp-container">
+
+            <div id="sidebar-icons">
+                <a href="{{ url_for('signup') }}">
+                    <i class="fas fa-user"></i>
+                </a>
+                <span onclick="openNav()">
+                    <i class="fas fa-comment"></i>
+                </span>
+                <i class="fas fa-phone"></i>
+                <i class="fas fa-archive"></i>
+                <i class="fas fa-cog"></i>
+            </div>
+
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div id="sidebar">
+                    <div class="logo">
+                        <!-- <img src="https://www.shutterstock.com/image-vector/abstract-striped-spheressphere-vector-designlogo-260nw-339652763.jpg" -->
+                            <!-- alt=""> -->
+                        <div>
+                            <h2>Chat Sphere</h2>
+                        </div>
+                    </div>
+
+                    {% for username in usernames %}
+                    <div class="chat-list">
+                        <div class="chat-list-item">
+                            <img src="https://static.thenounproject.com/png/593213-200.png" alt="">
+                            <div>
+                                <h3>{{ username }}</h3>
+                                <p>last message....</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div id="main-content">
+                <div class="chat-name">
+                    <img src="https://static.thenounproject.com/png/593213-200.png" alt="">
+                    <div>
+                        <h3>{{post.username}}</h3>
+                    </div>
+                </div>
+
+                <div class="chat">
+                    <div class="chat-header">Chat with {{post.username}}</div>
+                    <div class="chat-messages" id="chat-messages"></div>
+                    <form class="chat-input" action="/chat/{{post.username}}" method="POST">
+                        <input type="text" id="message-input" name="message" placeholder="Type your message" required>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //document.addEventListener('DOMContentLoaded', function () {
+          //  var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+            //if ('{{ post.username }}' !== 'undefined') {
+              //  socket.emit('join', { room: '{{ post.username }}', username: '{{ post.username }}' });
+            //}
+
+            //socket.on('message', function (data) {
+              //  var chatMessages = document.getElementById('chat-messages');
+
+                //if (data.username !== '{{ post.username }}') {
+                  //  var messageDiv = document.createElement('div');
+                    //messageDiv.className = 'message sent';
+                    //messageDiv.innerHTML = data.username + ': ' + data.message;
+                    //chatMessages.appendChild(messageDiv);
+                //}
+            //});
+
+            //document.querySelector('.chat-input').addEventListener('submit', function (event) {
+              //  event.preventDefault();
+              //  var messageInput = document.getElementById('message-input');
+              //  var message = messageInput.value;
+
+              //  socket.emit('message', { room: '{{ post.username }}', username: '{{ post.username }}', message: message });
+
+              //  var chatMessages = document.getElementById('chat-messages');
+              //  var sentMessageDiv = document.createElement('div');
+              //  sentMessageDiv.className = 'message sent';
+              //  sentMessageDiv.innerHTML = 'You: ' + message;
+              //  chatMessages.appendChild(sentMessageDiv);
+
+                //messageInput.value = '';
+            //});
+        //});
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+</body>
+
+</html>
