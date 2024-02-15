@@ -31,7 +31,7 @@ def dashboard():
 @app.route('/dashboard', methods=["GET"])
 def login():
     """redirect me to dashboard"""
-    return render_template("Dashboard.html")
+    return render_template("Dashboard1.html")
 
 @app.route('/LogIn', methods=['GET','POST'])
 def login_db():
@@ -92,4 +92,4 @@ def signup():
 
 
 if __name__ == "__main__":
-    app.run(host = '0.0.0.0')
+    app.run(host = '0.0.0.0', debug=True, port=5000)
